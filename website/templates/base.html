@@ -2,131 +2,145 @@
 <head>
   <title>OmniDB</title>
 
+  {% load static %}
+  <link rel="shortcut icon" href="{% static '/img/visual_identity/favicon.ico' %}" />
+
+  <link rel="stylesheet" href="{% static '/css/style.css' %}" />
+
 </head>
 <body>
 
-    <header>
+  <div id="omnidb-django-website">
 
-        <div class="custom">
-    	      <div id="gh-ribbon"><a href="https://github.com/OmniDB/OmniDB"><img src="/images/headers/gh-adapted.png" alt="Fork me on GitHub"></a>
+        <header>
+
+            <div class="custom">
+        	      <div id="gh-ribbon"><a href="https://github.com/OmniDB/OmniDB"><img src="{% static '/img/third_party/gh-adapted.png' %}" alt="Fork me on GitHub"></a>
+                </div>
             </div>
+
+            <div class="border-top"></div>
+        		<div id="header1">
+        			<div class="container">
+        				<div class="row">
+        					<div class="col-12 d-flex">
+        						<nav class="ml-auto">
+                      <div class="mod-languages">
+
+        	              <ul class="lang-inline">
+        				            <li class="lang-active" dir="ltr">
+                               <a href="/en/">
+                                 <img src="{% static '/img/third_party/en_gb.gif' %}" alt="English (UK)" title="English (UK)">
+                               </a>
+        	                  </li>
+                        </ul>
+
+                      </div>
+
+        						</nav>
+        					</div>
+        				</div>
+        			</div>
+        		</div>
+        		<div id="header2">
+        			<div class="container">
+        				<div class="row">
+        					<div id="logo" class="col-3">
+
+
+                    <div class="custom">
+        	             <div>
+                         <a id="brand-link" title="OmniDB Brand" href="/index.php"><img src="{% static '/img/visual_identity/omnidb.png' %}" alt="OmniDB"></a>
+                       </div>
+                    </div>
+
+        					</div>
+        					<div class="col-9 d-flex">
+        						<nav class="ml-auto">
+
+
+                      <div class="custom d-none">
+        	              <div class="main-menu-toggler"><button type="menu-toggler">&nbsp;</button></div>
+                        <div class="menu-mask">&nbsp;</div>
+                      </div>
+
+
+                      <div id="horizmenu-surround">
+                        <ul class="menutop level1 d-flex">
+                          <li class="item148 active root">
+                                <a class="item active item-active" href="/">
+                                    <span>Overview</span>
+                                </a>
+                          </li>
+                          <li class="item149 root">
+                                <a class="item" href="/en/downloads-en">
+                                    <span>Downloads</span>
+                                </a>
+                          </li>
+                          <li class="item150 parent root">
+                                <a class="item" href="/en/documentation-en">
+                                    <span>Documentation</span>
+                                </a>
+                          </li>
+                          <li class="item161 root">
+                                <a class="item" href="https://github.com/OmniDB/OmniDB/issues">
+                                    <span>Community</span>
+                                </a>
+                          </li>
+                          <li class="item190 root">
+                                <a class="item" href="/en/sponsors-en">
+                                    <span>Sponsors</span>
+                                </a>
+                            </li>
+                          </ul>
+                      </div>
+
+
+        						</nav>
+        					</div>
+        				</div>
+        			</div>
+        		</div>
+
+        </header>
+
+
+        <div class="page-content">
+
+            <h1>[[ umTeste ]]</h1>
+
+
+                <ul v-if="widgets.sidebar">
+                    <li v-for="sidebarItem in widgets.sidebar.items">[[ sidebarItem.title ]]</li>
+                </ul>
+
+            {% block content %}
+            {% endblock %}
+
         </div>
 
-        <div class="border-top"></div>
-    		<div id="header1">
-    			<div class="container">
-    				<div class="row">
-    					<div class="col-12">
-    						<nav class="pull-right">
-                  <div class="mod-languages">
 
-    	              <ul class="lang-inline">
-    				            <li class="lang-active" dir="ltr">
-                           <a href="/en/">
-                             <img src="/media/mod_languages/images/en_gb.gif" alt="English (UK)" title="English (UK)">
-                           </a>
-    	                  </li>
-                    </ul>
+  </div>
 
-                  </div>
-
-    						</nav>
-    					</div>
-    				</div>
-    			</div>
-    		</div>
-    		<div id="header2">
-    			<div class="container">
-    				<div class="row">
-    					<div id="logo" class="col-3">
+  <script type="application/javascript">
 
 
-                <div class="custom">
-    	             <div>
-                     <a id="brand-link" title="OmniDB Brand" href="/index.php"><img src="/images/headers/omnidb.png" alt="OmniDB"></a>
-                   </div>
-                </div>
-
-    					</div>
-    					<div class="col-9 pull-right">
-    						<nav class="pull-right">
+        var WIDGETS = {{ widgets | safe }};
 
 
-                  <div class="custom">
-    	              <div class="main-menu-toggler"><button type="menu-toggler">&nbsp;</button></div>
-                    <div class="menu-mask">&nbsp;</div>
-                  </div>
 
 
-                  <div id="horizmenu-surround">
-                    <ul class="menutop level1">
-                      <li class="item148 active root">
-                            <a class="item active item-active" href="/en/">
-                                <span>Overview</span>
-                            </a>
-                      </li>
-                      <li class="item149 root">
-                            <a class="item" href="/en/downloads-en">
-                                <span>Downloads</span>
-                            </a>
-                      </li>
-                      <li class="item150 parent root">
-                            <a class="item" href="/en/documentation-en">
-                                <span>Documentation</span>
-                            </a>
-                      </li>
-                      <li class="item161 root">
-                            <a class="item" href="https://github.com/OmniDB/OmniDB/issues">
-                                <span>Community</span>
-                            </a>
-                      </li>
-                      <li class="item190 root">
-                            <a class="item" href="/en/sponsors-en">
-                                <span>Sponsors</span>
-                            </a>
-                        </li>
-                      </ul>
-                  </div>
 
+  </script>
 
-    						</nav>
-    					</div>
-    				</div>
-    			</div>
-    		</div>
-
-    </header>
-
-    <h1>Boraaa...</h1>
-
-    {% for ct_section in data.content_sections %}
-
-      {% if ct_section.id %}
-
-          <section id="{{ ct_section.id }}">
-
-      {% else %}
-
-          <section>
-
-      {% endif %}
-
-              {% if ct_section.wrap_type %}
-                  <div class="{{ ct_section.wrap_type }}">
-              {% else %}
-                  <div class="container">
-              {% endif %}
-
-                      {{ ct_section.content | safe }}
-
-                  </div>
-
-          </section>
-
-    {% endfor %}
-
-    <script type="text/javascript">
-    </script>
+  <script type="text/javascript" src="{% static 'node_modules/vue/dist/vue.js' %}"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="{% static 'node_modules/bootstrap/dist/js/bootstrap.min.js' %}"></script>
+  <script type="text/javascript" src="{% static 'node_modules/bootstrap-vue/dist/bootstrap-vue.min.js' %}"></script>
+  <script src="{% static 'js/components/omnidbSidebar.vue' %}"></script>
+  <script type="text/javascript" src="{% static 'js/core/bag.js' %}"></script>
+  <script type="text/javascript" src="{% static 'js/app.js' %}"></script>
 
 </body>
 </html>

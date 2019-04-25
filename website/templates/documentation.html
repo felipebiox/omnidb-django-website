@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+
+      {% for ct_section in data.content_sections %}
+
+        {% if ct_section.id %}
+
+            <section id="{{ ct_section.id }}">
+
+        {% else %}
+
+            <section>
+
+        {% endif %}
+
+                {% if ct_section.wrap_type %}
+                    <div class="{{ ct_section.wrap_type }}">
+                {% else %}
+                    <div class="container">
+                {% endif %}
+
+                        {{ ct_section.content | safe }}
+
+                    </div>
+
+            </section>
+
+      {% endfor %}
+
+
+{% endblock %}
